@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Add from './views/Add.vue'
 import Mains from './views/Mains.vue'
+import Warehousing from './views/Warehousing.vue'
 
 Vue.use(Router)
 
@@ -16,13 +17,19 @@ export default new Router({
       component: Mains,
       children: [
         {
-          path: 'Warehousing',
-          component: Warehousing
+          path: '',
+          name: 'home',
+          component: Home
         },
         {
-          path: 'appointment',
-          component: appointment
-        }
+          path: '/Warehousing',
+          name: 'warehousing',
+          component: Warehousing
+        },
+        // {
+        //   path: '/appointment',
+        //   component: appointment
+        // }
       ]
     },
     {

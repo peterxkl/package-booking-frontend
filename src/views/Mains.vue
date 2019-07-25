@@ -1,20 +1,20 @@
 <template>
     <div>
-        <div class="layout">
+      <div class="layout">
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
-                <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
+                <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
                     <MenuItem name="1-1">
                         <Icon type="ios-navigate"></Icon>
-                        <span>主页</span>
+                        <span @click="main">主页</span>
                     </MenuItem>
                     <MenuItem name="1-2">
                         <Icon type="search"></Icon>
-                        <span>包裹入库</span>
+                        <span @click="enter">包裹入库</span>
                     </MenuItem>
                     <MenuItem name="1-3">
                         <Icon type="settings"></Icon>
-                        <span>预约取件</span>
+                        <span @click="get">预约取件</span>
                     </MenuItem>
                 </Menu>
             </Sider>
@@ -27,30 +27,43 @@
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
                     <Card>
-                        <div style="height: 600px">Content</div>
+                        <div style="height: 600px">
+                            <router-view></router-view>
+                        </div>
                     </Card>
                 </Content>
             </Layout>
         </Layout>
-    </div>
+     </div>
     </div>
 </template>
 
 <script>
 export default {
     data () {
-            return {
-                isCollapsed: false
-            };
-        },
-        computed: {
-            menuitemClasses: function () {
-                return [
-                    'menu-item',
-                    this.isCollapsed ? 'collapsed-menu' : ''
-                ]
-            }
+        return {
+            isCollapsed: false
+        };
+    },
+    computed: {
+        menuitemClasses: function () {
+            return [
+                'menu-item',
+                this.isCollapsed ? 'collapsed-menu' : ''
+            ]
         }
+    },
+    methods: {
+        main(){
+          
+        },
+        enter(){
+
+        },
+        get(){
+
+        }
+    }
 }
 </script>
 

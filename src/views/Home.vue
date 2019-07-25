@@ -1,8 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <div>
+      <div>
+        <span>菜鸟驿站</span>
+        <Button type="primary" >All</Button>
+        <Button type="primary">已经预约</Button>
+        <Button type="primary">已取件</Button>
+        <Button type="primary">未预约</Button>
+      </div>
+      <div>
+         <Table :columns="columns1" :data="data1"></Table>
+      </div>
+    
+   </div>
   </div>
+  
 </template>
 
 <script>
@@ -13,6 +25,37 @@ export default {
   name: 'home',
   components: {
     HelloWorld
-  }
+  },
+  mounted:function(){
+      this.$store.dispatch('getPackageList')
+  },
+  data () {
+            return {
+                columns1: [
+                    {
+                        title: '运单号',
+                        key: 'id'
+                    },
+                    {
+                        title: '收件人',
+                        key: 'name'
+                    },
+                    {
+                        title: '电话',
+                        key: 'phone'
+                    },
+                    {
+                        title: '状态',
+                        key: 'status'
+                    },
+                    {
+                        title: '预约时间',
+                        key: 'time'
+                    }
+                ],
+                data1: this.$store.state.list
+            }
+        }
+
 }
 </script>
